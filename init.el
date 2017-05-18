@@ -13,7 +13,8 @@ values."
    ;; Lazy installation of layers (i.e. layers are installed only when a file
    ;; with a supported type is opened). Possible values are `all', `unused'
    ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
-   ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
+   ;; (linum-on)
+; not listed in variable `dotspacemacs-configuration-layers'), `all' will
    ;; lazy install any layer that support lazy installation even the layers
    ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
    ;; installation feature and you have to explicitly list a layer in the
@@ -40,7 +41,7 @@ values."
      ;; ----------------------------------------
      helm
      auto-completion
-     ;; better-defaults
+     better-defaults
      emacs-lisp
      git
      ;; markdown
@@ -54,14 +55,11 @@ values."
      ;; version-control
      wdy
      )
-   ;; List of additiona
-   ;; l packages t#+OPTIONS: ^:nil
-   ;; hat will be installed without being
-   ;; wrapped in a layer. If 
-   ;; you need some configuration for these
+   ;; List of additional packages that will be installed without being
+   ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(youdao-dictionary apples-mode applescript-mode)
+   dotspacemacs-additional-packages '(youdao-dictionary)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -142,7 +140,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Courier"
+   dotspacemacs-default-font '("Source Code Pro"
                                :size 16
                                :weight normal
                                :width normal
@@ -269,7 +267,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -300,7 +298,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'changed
    ))
 
 (defun dotspacemacs/user-init ()
@@ -323,6 +321,12 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; force horizontal split window
+  (setq split-width-threshold 120)
+
+  ;;(global-hungry-delete-mode t)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -341,7 +345,7 @@ you should place your code here."
  '(fci-rule-color "#3E4451" t)
  '(package-selected-packages
 	 (quote
-		(lsp-java atom-one-light-theme atom-one-dark-theme-theme applescript-mode apples-mode youdao-dictionary names chinese-word-at-point pos-tip company-emacs-eclim eclim sql-indent smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor org-projectile org-present alert log4e gntp org-download helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company auto-yasnippet ac-ispell auto-complete haml-mode livid-mode skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode volatile-highlights vi-tilde-fringe spaceline powerline rainbow-delimiters org-bullets lorem-ipsum highlight-indentation helm-themes helm-swoop helm-make google-translate flx-ido fancy-battery eyebrowse evil-mc evil-lisp-state smartparens evil-indent-plus evil-exchange evil-escape evil-ediff evil-args define-word clean-aindent-mode ace-jump-helm-line ws-butler winum which-key web-mode web-beautify uuidgen use-package toc-org tagedit solarized-theme slim-mode scss-mode sass-mode restart-emacs request ranger rainbow-mode rainbow-identifiers pug-mode popwin persp-mode pcre2el paradox origami org-pomodoro org-plus-contrib open-junk-file neotree move-text mmm-mode markdown-toc macrostep linum-relative link-hint less-css-mode json-mode js2-refactor js-doc info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers hide-comnt help-fns+ helm-projectile helm-mode-manager helm-flx helm-descbinds helm-css-scss helm-ag golden-ratio gnuplot fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-iedit-state evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump column-enforce-mode color-identifiers-mode coffee-mode bind-map auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link))))
+		(unfill mwim lsp-java atom-one-light-theme atom-one-dark-theme-theme applescript-mode apples-mode youdao-dictionary names chinese-word-at-point pos-tip company-emacs-eclim eclim sql-indent smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor org-projectile org-present alert log4e gntp org-download helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company auto-yasnippet ac-ispell auto-complete haml-mode livid-mode skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode volatile-highlights vi-tilde-fringe spaceline powerline rainbow-delimiters org-bullets lorem-ipsum highlight-indentation helm-themes helm-swoop helm-make google-translate flx-ido fancy-battery eyebrowse evil-mc evil-lisp-state smartparens evil-indent-plus evil-exchange evil-escape evil-ediff evil-args define-word clean-aindent-mode ace-jump-helm-line ws-butler winum which-key web-mode web-beautify uuidgen use-package toc-org tagedit solarized-theme slim-mode scss-mode sass-mode restart-emacs request ranger rainbow-mode rainbow-identifiers pug-mode popwin persp-mode pcre2el paradox origami org-pomodoro org-plus-contrib open-junk-file neotree move-text mmm-mode markdown-toc macrostep linum-relative link-hint less-css-mode json-mode js2-refactor js-doc info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers hide-comnt help-fns+ helm-projectile helm-mode-manager helm-flx helm-descbinds helm-css-scss helm-ag golden-ratio gnuplot fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-iedit-state evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump column-enforce-mode color-identifiers-mode coffee-mode bind-map auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
