@@ -177,3 +177,4 @@
 ;; 使用Tab缩进
 (setq default-tab-width 2)
 (setq-default indent-tabs-mode t)
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))

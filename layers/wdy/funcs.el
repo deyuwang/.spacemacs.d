@@ -311,4 +311,22 @@ Test cases
 		(wdy-delete-end-space)
 		(mark-whole-buffer)
 		(indent-for-tab-command)
-		(save-buffer))) 
+		(save-buffer)))
+
+
+(defun wdy-say (str)
+	"朗读指定文本"
+  (start-process-shell-command  "say" nil
+																(concat "say " str)))
+
+(defun wdy-say-region ()
+	"朗读选中的文本或者单词"
+	(interactive)
+	(wdy-say (get-region-or-word)))
+
+
+(defun wdy-save-file-to-voice-file ()
+	"将当前buffer内容转成语音文件,默认放到home目录"
+	(interactive)
+	(let (cmd (concat "say -o ~/" (buffer-name) ".m4a -f " (buffer-file-name)))
+		(start-process-shell-command "say-to-file" nil cmd)))
