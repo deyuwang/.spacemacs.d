@@ -310,8 +310,7 @@ Test cases
 		(wdy-replace-begin-space-to-tab)
 		(wdy-delete-end-space)
 		(mark-whole-buffer)
-		(indent-for-tab-command)
-		(save-buffer)))
+		(indent-for-tab-command)))
 
 
 (defun wdy-say (str)
