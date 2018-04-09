@@ -2,14 +2,14 @@
 ;; 一些基本设置（不含第三方库）
 ;;----------------------------------------------------------------------------
 ;;窗口初始大小
-;(setq initial-frame-alist '((top . 0) (left . 0) (width . 81) (height . 37)))
+										;(setq initial-frame-alist '((top . 0) (left . 0) (width . 81) (height . 37)))
 
 ;;设置打开文件的缺省目录
-;(setq default-directory "E:/")
+										;(setq default-directory "E:/")
 
 ;;去掉启动欢迎界面
 ;;(setq inhibit-startup-message t)
- 
+
 ;;没有提示音，也不闪屏  
 ;;(setq ring-bell-function 'ignore)  
 ;;(setq visible-bell nil)
@@ -34,14 +34,14 @@
 ;; (setq linum-format "%d ")
 
 ;;在左侧显示行号
-;(global-linum-mode 'linum-mode)
+										;(global-linum-mode 'linum-mode)
 
 
 ;;set mark(进入选择文本模块）
 ;;(global-set-key (kbd "M-SPC") 'set-mark-command)
 
 ;;光标靠近鼠标的时候，让鼠标自动让开，别挡住视线
-;(mouse-avoidance-mode 'animate)
+										;(mouse-avoidance-mode 'animate)
 
 ;;平滑滚动, 在光标在最后一行的时候，继续下一行跳动的时候，有明显的跳动感觉
 ;;(setq scroll-margin 2 scroll-conservatively 10000)
@@ -50,7 +50,7 @@
 ;;(auto-save-mode t)
 
 ;;默认显示 80列就换行
-;(setq default-fill-column 80) ;default-fill-column' is an obsolete variable (as  of 23.2); use 'fill-column' instead.
+										;(setq default-fill-column 80) ;default-fill-column' is an obsolete variable (as  of 23.2); use 'fill-column' instead.
 ;;(setq fill-column 80)
 
 ;;设置行间距
@@ -63,7 +63,7 @@
 ;;(if (eq window-system 'x) (global-set-key [(control z)] 'suspend-emacs))
 
 ;;高亮显示当前行
-;(global-hl-line-mode)
+										;(global-hl-line-mode)
 
 ;;在下面栏中显示时间
 (display-time-mode 1)
@@ -75,13 +75,13 @@
 ;;(setq-default cursor-type t)
 
 ;;光标颜色
-;(set-cursor-color "green")
+										;(set-cursor-color "green")
 
 ;;背景颜色; 草绿色
-;(set-background-color "#CBE8CF")
+										;(set-background-color "#CBE8CF")
 
 ;;隐藏菜单栏、右侧的滚动条
-;(menu-bar-mode 0)
+										;(menu-bar-mode 0)
 ;;(tool-bar-mode 0)
 ;;(scroll-bar-mode 0)
 
@@ -91,14 +91,14 @@
 ;;(global-set-key "\M-0" 'delete-window); 关闭窗口
 
 (global-set-key (kbd "<f5>") 'kmacro-call-macro);播放宏
-;(define-key  key-translation-map [f9] (kbd "C-x r l")) ;查看书签
-;(define-key  key-translation-map [f10] (kbd "C-x r m")) ;增加书签
-;(define-key  key-translation-map [f11] (kbd "C-x"))
-;(define-key  key-translation-map [f12] (kbd "C-x"))
+										;(define-key  key-translation-map [f9] (kbd "C-x r l")) ;查看书签
+										;(define-key  key-translation-map [f10] (kbd "C-x r m")) ;增加书签
+										;(define-key  key-translation-map [f11] (kbd "C-x"))
+										;(define-key  key-translation-map [f12] (kbd "C-x"))
 
 ;; 光标所在行不变，上下滚动
-(global-set-key "\M-p" '(lambda () (interactive) (scroll-down 1)))
-(global-set-key "\M-n" '(lambda () (interactive) (scroll-up 1)))
+;;(global-set-key "\M-p" '(lambda () (interactive) (scroll-down 1)))
+;;(global-set-key "\M-n" '(lambda () (interactive) (scroll-up 1)))
 
 ;; 回车 改成回车并缩进
 ;;(global-set-key (kbd "RET") 'newline-and-indent)
@@ -106,14 +106,14 @@
 ;; 设置Tab为4个字符
 ;;(setq indent-tabs-mode nil)
 ;;(setq tab-width 4)
-;(setq default-tab-width 4); default-tab-width is an obsolete
+										;(setq default-tab-width 4); default-tab-width is an obsolete
 
 ;; eshell 命令颜色
 ;;(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t) 
 ;;(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t) 
 
 ;;Emacs顶部标题栏显示完整文件名
-;(setq frame-title-format " %b")
+										;(setq frame-title-format " %b")
 (defun frame-title-string ()
   "Return the file name of current buffer, using ~ if under home directory"
   (let
@@ -122,7 +122,8 @@
     (when (string-match (getenv "HOME") fname)
       (setq fname (replace-match "~" t t fname)))
     fname))
-(setq frame-title-format '("" system-name "  File: "(:eval (frame-title-string))))
+;;(setq frame-title-format '("" system-name "  File: "(:eval (frame-title-string))))
+(setq frame-title-format '("" (:eval (frame-title-string))))
 
 
 ;; 可以补全各种内容
@@ -171,8 +172,8 @@
 ;;(require 'simple-httpd)
 ;;(require 'browse-url)
 
-;(defservlet hello-world text/plain (path)
-;  (insert "hello, " (file-name-nondirectory path)))
+										;(defservlet hello-world text/plain (path)
+										;  (insert "hello, " (file-name-nondirectory path)))
 
 ;; 使用Tab缩进
 (setq default-tab-width 4)
