@@ -9,7 +9,7 @@
 (defun wdy-now ()
   "插入当前时间"
   (interactive)
-  (insert (format-time-string "[%Y-%m-%d, %a]")))
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S"))) 
 
 (defun wdy-buffer-replace (buff oldstr newstr)
   "替换指定buffer中所有指定字符"
@@ -317,8 +317,9 @@ Test cases
 
 (defun wdy-say (str)
   "朗读指定文本"
-  (start-process-shell-command  "say" nil
-								(concat "say " str)))
+  (start-process-shell-command
+   "say" nil
+   (concat "say " str)))
 
 (defun wdy-say-region ()
   "朗读选中的文本或者单词"

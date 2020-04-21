@@ -6,7 +6,7 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
-   ;; Base distribution to use. This is a layer contained in the directory
+   ;; Base distribution to use. This is a layer contained  getin the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
@@ -30,6 +30,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+		 markdown
      sql
      html
      javascript
@@ -132,10 +133,10 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(atom-one-dark
-												 spacemacs-light
-												 spacemacs-dark
-                         )
+   dotspacemacs-themes '( ;;atom-one-dark
+						  spacemacs-dark
+						  spacemacs-light
+						)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -298,7 +299,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup 'changed
+   dotspacemacs-whitespace-cleanup 'nil
    ))
 
 (defun dotspacemacs/user-init ()
@@ -345,7 +346,7 @@ you should place your code here."
  '(fci-rule-color "#3E4451" t)
  '(package-selected-packages
 	 (quote
-		(unfill mwim lsp-java atom-one-light-theme atom-one-dark-theme-theme applescript-mode apples-mode youdao-dictionary names chinese-word-at-point pos-tip company-emacs-eclim eclim sql-indent smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor org-projectile org-present alert log4e gntp org-download helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company auto-yasnippet ac-ispell auto-complete haml-mode livid-mode skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode volatile-highlights vi-tilde-fringe spaceline powerline rainbow-delimiters org-bullets lorem-ipsum highlight-indentation helm-themes helm-swoop helm-make google-translate flx-ido fancy-battery eyebrowse evil-mc evil-lisp-state smartparens evil-indent-plus evil-exchange evil-escape evil-ediff evil-args define-word clean-aindent-mode ace-jump-helm-line ws-butler winum which-key web-mode web-beautify uuidgen use-package toc-org tagedit solarized-theme slim-mode scss-mode sass-mode restart-emacs request ranger rainbow-mode rainbow-identifiers pug-mode popwin persp-mode pcre2el paradox origami org-pomodoro org-plus-contrib open-junk-file neotree move-text mmm-mode markdown-toc macrostep linum-relative link-hint less-css-mode json-mode js2-refactor js-doc info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers hide-comnt help-fns+ helm-projectile helm-mode-manager helm-flx helm-descbinds helm-css-scss helm-ag golden-ratio gnuplot fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-iedit-state evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump column-enforce-mode color-identifiers-mode coffee-mode bind-map auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link))))
+		(markdown-mode gh-md atom-one-dark-theme yapfify pyvenv pytest py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode pythonic org-mime unfill mwim lsp-java atom-one-light-theme atom-one-dark-theme-theme applescript-mode apples-mode youdao-dictionary names chinese-word-at-point pos-tip company-emacs-eclim eclim sql-indent smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor org-projectile org-present alert log4e gntp org-download helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company auto-yasnippet ac-ispell auto-complete haml-mode livid-mode skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode volatile-highlights vi-tilde-fringe spaceline powerline rainbow-delimiters org-bullets lorem-ipsum highlight-indentation helm-themes helm-swoop helm-make google-translate flx-ido fancy-battery eyebrowse evil-mc evil-lisp-state smartparens evil-indent-plus evil-exchange evil-escape evil-ediff evil-args define-word clean-aindent-mode ace-jump-helm-line ws-butler winum which-key web-mode web-beautify uuidgen use-package toc-org tagedit solarized-theme slim-mode scss-mode sass-mode restart-emacs request ranger rainbow-mode rainbow-identifiers pug-mode popwin persp-mode pcre2el paradox origami org-pomodoro org-plus-contrib open-junk-file neotree move-text mmm-mode markdown-toc macrostep linum-relative link-hint less-css-mode json-mode js2-refactor js-doc info+ indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers hide-comnt help-fns+ helm-projectile helm-mode-manager helm-flx helm-descbinds helm-css-scss helm-ag golden-ratio gnuplot fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-iedit-state evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump column-enforce-mode color-identifiers-mode coffee-mode bind-map auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
